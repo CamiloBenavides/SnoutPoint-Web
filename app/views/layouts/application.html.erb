@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SnoutPoint Social</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+    
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="Seven Theme Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+
+<!---- start-smoth-scrolling---->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+		</script>
+<!---- start-smoth-scrolling---->
+</head>
+
+    
+    
+<body>
+<div id="home" class="top-header">
+    <div class="container">
+    <div class="logo">
+        <%= link_to (image_tag "logo.png"), root_path %>
+    </div>
+            
+        <div class="top-menu">
+					 <span class="menu"></span> 					 
+					 <ul>
+		         <li class="active"><%= link_to 'INCIO' , root_path %></li>
+		         <li><%= link_to 'PERFIL' , users_path  %></li>
+						 <!--<li><a class="scroll" href="#services">SERVICES</a></li>-->
+						 <li><a class="scroll" href="#portfolio">MENSAJES</a></li>
+						 <li><a class="scroll" href="#about">ABOUT</a></li>	
+						 <li><a class="scroll" href="#news">NEWS</a></li>
+						 <%if user_se_signed_in? %>
+							 <li><%=link_to "Editar mi cuenta", edit_user_se_registration_path, method: :get,class: 'scroll'  %></li>	
+							 <li><%=link_to "Cerrar Sesión", destroy_user_se_session_path, method: :delete,class: 'scroll'  %></li>	
+						 <%end%>
+						 
+						 <% if notice %>
+    						<p class="notice"><%= notice %></p>
+					   <% end %>
+						 <% if alert %>
+    						<p class="alert"><%= alert %></p>
+					   <% end %>
+			 
+		 		</div>	
+		 		
+		 		
+  				
+        <div class="clearfix"></div>	
+        	
+        <!-- script-for-menu -->
+		 <script>
+		 
+				$("span.menu").click(function(){
+					$(".top-menu ul").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+    </div>	  
+</div>
+
+    <%= yield %> <!-- permite el cambio en las vistas -->
+  <!---->
+<div class="footer">
+	 <div class="container">
+		 <p>Copyrights © 2015 SnoutPoint rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+		 <div class="social">							
+				<a href="#"><i class="facebook"></i></a>
+				<a href="#"><i class="twitter"></i></a>
+				<a href="#"><i class="dribble"></i></a>	
+				<a href="#"><i class="google"></i></a>	
+				<a href="#"><i class="youtube"></i></a>	
+		 </div>
+	 </div>
+</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,12 @@
+<% if user_se_signed_in?  %>
+    <script type="text/javascript">
+      window.location.href="/users"  // put your correct path in a string here
+    </script>
+  <%else%>
+    <%= render :file => '/devise/sessions/new' %>
+<% end %>
+
+
+
+
+
