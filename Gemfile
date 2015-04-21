@@ -36,10 +36,10 @@ gem 'cancancan'
 
 
 
-group :development do
+group :production do
      gem 'pg'
  end
-gem 'rails_12factor', group: :development
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
