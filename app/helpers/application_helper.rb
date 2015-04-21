@@ -1,15 +1,15 @@
 module ApplicationHelper
     
     def resource_name
-    :user_se
+    :user
      end
 
     def resource
-    @resource ||= UserSe.new
+    @resource ||= User.new
     end
 
     def devise_mapping
-      @devise_mapping ||= Devise.mappings[:user_se]
+      @devise_mapping ||= Devise.mappings[:user]
     end
     
 end

@@ -18,14 +18,14 @@
 								         <%= f.label :nombre, "Editar Nombre" %></br>
 								         <%= f.text_field :nombre, autofocus: true, required: true, placeholder: "Nombre(s)"%>
 	    									 <%= f.label :fechaNacimiento, "Fecha de Nacimiento" %></br>
-	    	 							 	 <%= date_field("user_se", :fechaNacimiento, required: true, placeholder: "Fecha de nacimiento", min: Date.new(2002, 1, 1), max: Date.today )%>
+	    	 							 	 <%= date_field("user", :fechaNacimiento, required: true, placeholder: "Fecha de nacimiento", min: Date.new(1970, 1, 1), max: Date.new(2002, 1, 1) )%>
           							 <% generos = { 'Hombre'=> 'M', 'Mujer'=> 'F'} %>
-											   <%= f.label :password, "Nueva contraseña" %><i> (Dejar en blanco si no deseas cambiar tu contraseña)</i></br>
+											   <%= f.label :password, "Nueva contraseña" %><i> (Deja en blanco si no deseas cambiar tu contraseña)</i></br>
 										     <%= f.password_field :password, autocomplete: "off", :placeholder => "Nueva Contraseña"%></br>
 											   	  
 											   	  <div class="row">
 											   	  	 <div class="col-md-4">
-      														<%= image_tag current_user_se.image.url(:medium) , :class => 'img-rounded' %>
+      														<%= image_tag current_user.image.url(:medium) , :class => 'img-rounded' %>
       												 </div>
       												 <div class="col-md-4">
         													<%= f.file_field :image %>
@@ -39,7 +39,7 @@
 	    									<%= f.email_field :email, required: true, placeholder: "Correo electrónico"%></br>
 	    									<%= f.label :password_confirmation, "Repetir nueva contraseña" %></br>
 	    									<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repetir nueva contraseña" %></br>
-								      	<%= f.label :current_password, "Contraseña actual" %><i> (Necesitamos tu contraseña actual para confirmar tus cambios)</i><br />
+								      	<%= f.label :current_password, "Contraseña actual" %><i> (Necesitamos la contraseña actual para confirmar tus cambios)</i><br />
          							  <%= f.password_field :current_password, required: true, autocomplete: "off", placeholder: "Contraseña actual" %></br>
          							   
 											   <%= f.label :genero, "Género"%></br>
@@ -61,17 +61,17 @@
   </div>
 <div class="contact-bottom">
 		<div class="col-md-4 contact-grid">
-		  <%= link_to (image_tag "c1.png"), root_path %>
-			<h3>847-939-9359</h3>
+		  <a href="http://www.skype.com/es/"><%= image_tag("c1.png", :alt => "image") %></a>
+			<h3>Soporte: +57-312-587-3689</h3><br>
 		</div>
 		<div class="col-md-4 contact-grid">
-			<%= link_to (image_tag "c2.png"), root_path %>
-			<h3><a href="mailto:info@example.com">sevenmail@mail.com</a></h3>
+		  <a href="http://goo.gl/X30dCY"><%= image_tag("c2.png", :alt => "image") %></a>
+			<h3>softinge@gmail.com</h3>
 		</div>
 		<div class="col-md-4 contact-grid">
-		  <%= link_to (image_tag "c3.png"), root_path %>
-			<h3>4116 Oak Avenue</h3>
-			<h3>Chicago, IL 60607</h3>
+			<a href="http://goo.gl/NLofSq"><%= image_tag("c3.png", :alt => "image") %></a>
+			<h3>Pontificia Universidad Javeriana</h3>
+			<h3>Colombia, Bogotá D.C.</h3>
 		</div>
 		<div class="clearfix"></div>
 	</div>

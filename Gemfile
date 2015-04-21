@@ -32,6 +32,8 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 
 gem 'devise'
 
+gem 'cancancan'
+
 
 gem 'pg', group: :development 
 gem 'rails_12factor', group: :development

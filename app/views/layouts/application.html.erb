@@ -43,16 +43,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="top-menu">
 					 <span class="menu"></span> 					 
 					 <ul>
-		         <li class="active"><%= link_to 'INCIO' , root_path %></li>
-		         <li><%= link_to 'PERFIL' , users_path  %></li>
-						 <!--<li><a class="scroll" href="#services">SERVICES</a></li>-->
-						 <li><a class="scroll" href="#portfolio">MENSAJES</a></li>
-						 <li><a class="scroll" href="#about">ABOUT</a></li>	
-						 <li><a class="scroll" href="#news">NEWS</a></li>
-						 <%if user_se_signed_in? %>
-							 <li><%=link_to "Editar mi cuenta", edit_user_se_registration_path, method: :get,class: 'scroll'  %></li>	
-							 <li><%=link_to "Cerrar Sesión", destroy_user_se_session_path, method: :delete,class: 'scroll'  %></li>	
+							 <li><%= link_to 'INCIO' , root_path, method: :get,class: 'scroll' %></li>
+							 <li><a class="scroll" href="#boletin">NOTICIAS</a></li>						 	
+						 <%if user_signed_in? %>
+						 	 <li><a class="scroll" href="#/user/info/<%=current_user.nombre%>">PERFIL</a></li>
+							 <li><a class="scroll" href="#/user/mnsj/<%=current_user.nombre%>">MENSAJES</a></li>
+							 <li><%=link_to "EDITAR CUENTA", edit_user_registration_path, method: :get,class: 'scroll'  %></li>	
+							 <li><%=link_to "CERRAR SESIÓN", destroy_user_session_path, method: :delete,class: 'scroll'  %></li>
+							 
+							 <%if current_user.admin? %>
+						   <li><%= link_to 'ADMINISTRAR CUENTAS' , extra_pages_administrar_path, class: 'scroll' %></li>
+						 	 <%end%> 
+							 
+							 
+						 <%else %>
+						 	 <li><%= link_to 'INFORMACIÓN' , extra_pages_terminos_path,method: :get, class: 'scroll' %></li>
 						 <%end%>
+						
 						 
 						 <% if notice %>
     						<p class="notice"><%= notice %></p>
@@ -67,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   				
         <div class="clearfix"></div>	
         	
-        <!-- script-for-menu -->
+        <!-- script-para-el-menu -->
 		 <script>
 		 
 				$("span.menu").click(function(){
@@ -75,21 +82,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					});
 				});
 		 </script>
-		 <!-- script-for-menu -->
+		 <!-- script-para-el-menu -->
     </div>	  
 </div>
 
-    <%= yield %> <!-- permite el cambio en las vistas -->
-  <!---->
+    <%= yield %>
 <div class="footer">
 	 <div class="container">
 		 <p>Copyrights © 2015 SnoutPoint rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
-		 <div class="social">							
-				<a href="#"><i class="facebook"></i></a>
-				<a href="#"><i class="twitter"></i></a>
+		 <div class="social">					
+				<a href="https://www.facebook.com/"><i class="facebook"></i></a>
+				<a href="https://twitter.com/"><i class="twitter"></i></a>
 				<a href="#"><i class="dribble"></i></a>	
-				<a href="#"><i class="google"></i></a>	
-				<a href="#"><i class="youtube"></i></a>	
+				<a href="https://plus.google.com/"><i class="google"></i></a>	
+				<a href="https://www.youtube.com/"><i class="youtube"></i></a>	
 		 </div>
 	 </div>
 </div>
