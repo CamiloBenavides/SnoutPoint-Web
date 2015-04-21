@@ -1,0 +1,59 @@
+<div id="contact" class="contact">
+	 <div class="container">
+		 <div class="contact-info">
+			<h3><%= tipo %> CUENTA</h3>
+			<p>Soluta consequat no has. Has ex deleniti consulatu, tamquam interpertaris sit ex
+			no has. Has ex denosul vivendum ullamcorper et his.</p>
+	 </div>
+	  <div class="contact-details">				 
+			 
+		
+			 
+			 <%= form_for(@user) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+        <h2> <%= pluralize(@user.errors.count, "Errore") %> encontrados: </h2>
+  
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <%= f.text_field :nombre, :required => true, :placeholder => "Nombre/s" %>
+    <%= f.text_field :apellido, :required => true, :placeholder => "Apellido/s" %>
+    <%= f.password_field :contrasenia, :required => true, :placeholder => "Contraseña" %>
+    <%= f.text_field :correo %>
+    <%= date_field("user", :fechaNacimiento , min: Date.new(2002, 1, 1), max: Date.today )%>
+    
+    <% #if tipo == "EDITAR" %>
+       <%= f.file_field :image %>
+    <% #end %>
+    
+    <%= f.submit tipo %>
+ 
+<% end %>
+			 
+		 
+			 
+	  </div>
+	  <div class="contact-bottom">
+		 <div class="col-md-4 contact-grid">
+			  <%= link_to (image_tag "c1.png"), root_path %>
+			 <h3>847-939-9359</h3>
+		 </div>
+		 <div class="col-md-4 contact-grid">
+			  <%= link_to (image_tag "c2.png"), root_path %>
+			 <h3><a href="mailto:info@example.com">sevenmail@mail.com</a></h3>
+		 </div>
+		 <div class="col-md-4 contact-grid">
+			  <%= link_to (image_tag "c3.png"), root_path %>
+			 <h3>4116 Oak Avenue</h3>
+			 <h3>Chicago, IL 60607</h3>
+		 </div>
+		 <div class="clearfix"></div>
+	  </div>
+	 </div>
+</div>
