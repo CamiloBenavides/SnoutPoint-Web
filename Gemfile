@@ -35,7 +35,10 @@ gem 'devise'
 gem 'cancancan'
 
 
-gem 'pg', group: :development 
+
+group :development do
+     gem 'pg'
+ end
 gem 'rails_12factor', group: :development
 
 
