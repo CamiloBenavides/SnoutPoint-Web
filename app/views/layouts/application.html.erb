@@ -52,12 +52,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 <li><%=link_to "CERRAR SESIÓN", destroy_user_session_path, method: :delete,class: 'scroll'  %></li>
 							 
 							 <%if current_user.admin? %>
-						   <li><%= link_to 'ADMINISTRAR CUENTAS' , extra_pages_administrar_path, class: 'scroll' %></li>
+						   <li><%= link_to 'ADMINISTRAR CUENTAS' , extra_pages_administrar_path, method: :get, class: 'scroll' %></li>
 						 	 <%end%> 
 							 
 							 
 						 <%else %>
-						 	 <li><%= link_to 'INFORMACIÓN' , extra_pages_terminos_path,method: :get, class: 'scroll' %></li>
+						 	 <li><%= link_to 'INFORMACIÓN' , extra_pages_terminos_path,method: :post, class: 'scroll' %></li>
 						 <%end%>
 						
 						 

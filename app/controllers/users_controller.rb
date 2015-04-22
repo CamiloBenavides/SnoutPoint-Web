@@ -1,74 +1,80 @@
+# Clase que se encarga de controlar las acciones concernientes a los objetos de tipo User
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user_se!
-  # GET /users
-  # GET /users.json
+  
+  load_and_authorize_resource
+  
+  #Define los parámetros que son alterables por el controlador
+  def user_params
+      params.require(:user).permit(:nombre, :apellido, :email, :password, :password_confirmation, :fechaNacimiento, :image, :genero, :admin)
+  end
+  
+  # Método que accede a los registros de de tipo User 
+  # * *Resultado*     :
+  #   - se asigna a la variable @user una lista con objetos de tipo User encontrados en la base de datos
   def index
     @users = User.all
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # Método que busca un registro de tipo User
+  # * *Parámetros*    :
+  #   - +id+ -> identificador único del objeto de tipo User
+  # * *Resultado*     :
+  #   - se asigna a la variable @user el objeto de tipo User encontrado en la base de datos
   def show
+    @user = User.find(params[:id])
   end
 
-  # GET /users/new
+  # Método que prepara un objeto de tipo User vacío
+  # * *Resultado*     :
+  #   - Se asigna a la varibla @user un objeto vacío de tipo User 
   def new
     @user = User.new
+   
   end
 
-  # GET /users/1/edit
+  # Método que busca un registro de tipo User y prepararlo para su edición
+  # * *Parámetros*    :
+  #   - +id+ -> identificador único del objeto de tipo User
+  # * *Resultado*     :
+  #   - Se almacena el objeto de tipo User en la variable @user para ser usado en la vista correspondiente
   def edit
+    @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.json
+  # Método que guarda un objeto de tipo User en la base de datos
+  # * *Parámetros*    :
+  #   - +email+ -> String Correo electrónico 
+  #   - +password+ -> String Constraseña
+  #   - +password_confirmation+ -> String de confirmación de contraseña
+  # * *Resultado*     :
+  #   - El objeto de tipo User se guarda en la base de datos
   def create
-    @user = User.new(user_params)
+    @user = User.new(params[:user])
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to @user, :flash => { :success => 'Usuario creado exitosamente.' }
+    else
+      render :action => 'new'
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+ 
+ 
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  
+  # Método que elimina un registro de tipo 
+  # * *Parámetros*    :
+  #   - +id+ -> identificador único del registro de tipo User
+  # * *Resultado* :
+  #   - El objeto de tipo User se elimina exitosamente de la base de datos
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "Usuario: " + @user.nombre + " fue eliminado satisfactoriamente."
+      redirect_to :back
     end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:nombre, :apellido, :contrasenia, :correo, :fechaNacimiento, :image)
-    end
+  end 
+  
+  
+  
 end

@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   
-  
-  
-  
-  devise_for :user_ses 
+
+  devise_for :users
+ 
+  resources :users, :controller => "users"
+ 
+  get 'extra_pages/terminos'
+  get 'extra_pages/administrar'
   get "/", to: "home#index"
 
-  resources :users
-
-  # The priority is based upon order of creation: first created -> highest priority.
+   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

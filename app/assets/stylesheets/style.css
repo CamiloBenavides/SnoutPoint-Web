@@ -1255,7 +1255,7 @@ float:none;
 }
 .top-menu ul{
 display:none;
-background:#fa5c58;
+background:#04B404;
 width:100%;
 float: right;
 }
@@ -1283,7 +1283,7 @@ display: block;
 float:right;
 }
 .top-menu span.menu:before {
-content: url("../images/nav-icon.png") no-repeat 0px 0px;
+content: url("nav-icon.png") no-repeat 0px 0px;
 cursor: pointer;
 text-align:center;
 }

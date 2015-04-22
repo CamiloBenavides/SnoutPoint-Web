@@ -19,29 +19,31 @@
 			    <% generos = { 'Hombre'=> 'M', 'Mujer'=> 'F'} %>
 			    <%= f.label :genero, "Género"%></br>
 			    <% generos.each do |gen| %>
+			    	
 			    	<label for = "<%= gen[1] %>"><%= gen[0]%></label>
 			    	<%= f.radio_button :genero, gen[1], required: true%>
 			    <% end %>
-          		<%= f.submit "CREAR" %>	
-			<% end %>          		
+		 	    <%= f.submit "CREAR" %>
+			<% end %>
 		<%= render "devise/shared/links" %>
 	 	</div>
 	</div>
 	
 	<div class="contact-bottom">
 		<div class="col-md-4 contact-grid">
-		  <a href="http://www.skype.com/es/"><%= image_tag("c1.png", :alt => "image") %></a>
-		  <h3>Soporte: +57-312-587-3689</h3><br>
+		  <%= link_to (image_tag "c1.png"), root_path %>
+			<h3>Community Manager: +57-312-587-3689</h3><br>
 		</div>
 		
 		<div class="col-md-4 contact-grid">
-			<a href="http://goo.gl/X30dCY"><%= image_tag("c2.png", :alt => "image") %></a>
-			<h3>softinge@gmail.com</h3>
+			<%= link_to (image_tag "c2.png"), root_path %>
+			<h3><a href="mailto:info@example.com">softinge@gmail.com</a></h3>
 		</div>
+		
 		<div class="col-md-4 contact-grid">
-		  <a href="http://goo.gl/NLofSq"><%= image_tag("c3.png", :alt => "image") %></a>
-		  <h3>Pontificia Universidad Javeriana</h3>
-		  <h3>Colombia, Bogotá D.C.</h3>
+		  <%= link_to (image_tag "c3.png"), root_path %>
+			<h3>4116 Oak Avenue</h3>
+			<h3>Chicago, IL 60607</h3>
 		</div>
 		<div class="clearfix"></div>
 	</div>
