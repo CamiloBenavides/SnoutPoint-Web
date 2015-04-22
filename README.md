@@ -1,13 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////////////
-//   .d8888b.                             888    8888888b.          d8b          888    //
-//  d88P  Y88b                            888    888   Y88b         Y8P          888    //
-//  Y88b.                                 888    888    888                      888    //
-//   "Y888b.   88888b.   .d88b.  888  888 888888 888   d88P .d88b.  888 88888b.  888888 //
-//      "Y88b. 888 "88b d88""88b 888  888 888    8888888P" d88""88b 888 888 "88b 888    //
-//        "888 888  888 888  888 888  888 888    888       888  888 888 888  888 888    //
-//  Y88b  d88P 888  888 Y88..88P Y88b 888 Y88b.  888       Y88..88P 888 888  888 Y88b.  //
-//   "Y8888P"  888  888  "Y88P"   "Y88888  "Y888 888        "Y88P"  888 888  888  "Y888 //
-//////////////////////////////////////////////////////////////////////////////////////////                                                                                      
+![logo sample](/app/assets/images/LOGO2.png)                                                                                  
 =========================================
 
 SNOUTPOINT WEB APP, built with Ruby on Rails. It is ready to work locally.
@@ -22,7 +13,7 @@ Config
 | [Ruby][ruby] | 2.1.5 |
 | [Ruby on Rails][rails] | 4.1.8 |
 
-You can find some guidelines on how to install the above [on mac][mac_guidelines] and [on ubuntu][ubuntu_guidelines]
+You can find some guidelines on how to install the above [on ubuntu][ubuntu_guidelines]
 
 ### Recommended
 
